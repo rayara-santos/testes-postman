@@ -1,0 +1,308 @@
+{
+	"id": "d6eb7880-e187-490f-90fa-20f58cf90bcb",
+	"name": "Posts/Comments- gorest",
+	"timestamp": "2024-01-12T14:24:05.908Z",
+	"collection_id": "13959183-a35588b3-17db-43a1-ba70-c0d08a28ea96",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 0,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2024-01-12T14:23:58.742Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "4fe70a4b-855e-4044-9c74-563c51793948",
+			"name": "Criar Posts",
+			"url": "https://gorest.co.in/public/v2/users//posts",
+			"time": 513,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				513
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "30e35483-0ef4-4926-8308-f3d2715b61b4",
+			"name": "Falha Posts - Title",
+			"url": "https://gorest.co.in/public/v2/users/5935555/posts",
+			"time": 483,
+			"responseCode": {
+				"code": 422,
+				"name": "Unprocessable Entity"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				483
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "e568678f-6c8d-42ed-a50d-eafc7f04a3aa",
+			"name": "Falha Posts - Body",
+			"url": "https://gorest.co.in/public/v2/users/5935555/posts",
+			"time": 515,
+			"responseCode": {
+				"code": 422,
+				"name": "Unprocessable Entity"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				515
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "6c375d30-82a8-40bf-9dc7-6921e8dcbd81",
+			"name": "Listar - Post",
+			"url": "https://gorest.co.in/public/v2/posts/94213",
+			"time": 462,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				462
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "25470ac9-7101-4d49-8d6e-d02d76a2f593",
+			"name": "Atualizar - Posts",
+			"url": "https://gorest.co.in/public/v2/posts/94213",
+			"time": 471,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				471
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "fe57762b-2526-4e4b-bc0c-a94f6ffd8f77",
+			"name": "Criar Comments",
+			"url": "https://gorest.co.in/public/v2/posts/94213/comments",
+			"time": 554,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				554
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "7fba5718-ef6c-4d36-8d8a-8f72df18abca",
+			"name": "Falha Comments - Name",
+			"url": "https://gorest.co.in/public/v2/posts/93273/comments",
+			"time": 525,
+			"responseCode": {
+				"code": 422,
+				"name": "Unprocessable Entity"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				525
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "ce9ce2f7-93c4-47c9-8f99-a6aaa6f965a7",
+			"name": "Falha Comments - Body",
+			"url": "https://gorest.co.in/public/v2/posts/93273/comments",
+			"time": 533,
+			"responseCode": {
+				"code": 422,
+				"name": "Unprocessable Entity"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				533
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "956a38d2-8553-4946-85cc-fd7747bc8855",
+			"name": "Falha Comments - Email",
+			"url": "https://gorest.co.in/public/v2/posts/93273/comments",
+			"time": 511,
+			"responseCode": {
+				"code": 422,
+				"name": "Unprocessable Entity"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				511
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "da4cac11-8fab-4651-8af3-d1f14858d9ac",
+			"name": "Listar - Comments",
+			"url": "https://gorest.co.in/public/v2/comments/77313",
+			"time": 538,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				538
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "cac81a3d-14dd-4a24-bb73-e53bc0b81952",
+			"name": "Atualizar - Comments",
+			"url": "https://gorest.co.in/public/v2/comments/77313",
+			"time": 512,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				512
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "abe45dd8-7ea0-48e5-b3aa-963c63848772",
+			"name": "Delete - Comments",
+			"url": "https://gorest.co.in/public/v2/comments/77313",
+			"time": 500,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				500
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "62ba33dc-5b6a-4997-8014-a3dc21800bd0",
+			"name": "Delete - Posts",
+			"url": "https://gorest.co.in/public/v2/posts/94213",
+			"time": 552,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				552
+			],
+			"allTests": [
+				{}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 6669,
+	"collection": {
+		"requests": [
+			{
+				"id": "4fe70a4b-855e-4044-9c74-563c51793948",
+				"method": "POST"
+			},
+			{
+				"id": "30e35483-0ef4-4926-8308-f3d2715b61b4",
+				"method": "POST"
+			},
+			{
+				"id": "e568678f-6c8d-42ed-a50d-eafc7f04a3aa",
+				"method": "POST"
+			},
+			{
+				"id": "6c375d30-82a8-40bf-9dc7-6921e8dcbd81",
+				"method": "GET"
+			},
+			{
+				"id": "25470ac9-7101-4d49-8d6e-d02d76a2f593",
+				"method": "PUT"
+			},
+			{
+				"id": "fe57762b-2526-4e4b-bc0c-a94f6ffd8f77",
+				"method": "POST"
+			},
+			{
+				"id": "7fba5718-ef6c-4d36-8d8a-8f72df18abca",
+				"method": "POST"
+			},
+			{
+				"id": "ce9ce2f7-93c4-47c9-8f99-a6aaa6f965a7",
+				"method": "POST"
+			},
+			{
+				"id": "956a38d2-8553-4946-85cc-fd7747bc8855",
+				"method": "POST"
+			},
+			{
+				"id": "da4cac11-8fab-4651-8af3-d1f14858d9ac",
+				"method": "GET"
+			},
+			{
+				"id": "cac81a3d-14dd-4a24-bb73-e53bc0b81952",
+				"method": "PUT"
+			},
+			{
+				"id": "abe45dd8-7ea0-48e5-b3aa-963c63848772",
+				"method": "DELETE"
+			},
+			{
+				"id": "62ba33dc-5b6a-4997-8014-a3dc21800bd0",
+				"method": "DELETE"
+			}
+		]
+	}
+}

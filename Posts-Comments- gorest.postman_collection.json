@@ -1,0 +1,592 @@
+{
+	"info": {
+		"_postman_id": "a35588b3-17db-43a1-ba70-c0d08a28ea96",
+		"name": "Posts/Comments- gorest",
+		"description": "### Cenário de Teste: API Go REST\n\n1 - Criar Posts\n\n- Método: POST\n- URL: `https://gorest.co.in/public/v2/users/{id}/posts`\n- Corpo (JSON):  \n    code{ \"title\":\"teste\", \"body\":\"i don't know\"}\n- Esperado:  \n    \\- Status 201 (Created)  \n    \\- Resposta com o mesmo corpo enviado no json + user_id\n    \n\n2 - Criar Comments\n\n- Método: POST\n- URL: `https://gorest.co.in/public/v2/post/{idPost}/comments`\n- Corpo (JSON):  \n    code{ \"post\":\"93273\", \"name\":\"Gokuzin\", \"email\":\"gokuson@test\", \"body\":\"test\"}\n- Esperado:  \n    \\- Status 201 (Created)  \n    \\- Resposta com o mesmo corpo enviado no json\n    \n\n3 - Atualizar Posts\n\n- Método: PUT/PATCH\n- URL: `https://gorest.co.in/public/v2/post/{idPost}`\n- Esperado:  \n    \\- Status 200 (OK)  \n    \\- Retorno do body com o item atualizado no top + id e user_id\n    \n\n4 - Atualizar Comments\n\n- Método: PUT/PATCH\n- URL: `https://gorest.co.in/public/v2/comments/{idComments}`\n- Esperado:  \n    \\- Status Status 200 (OK)  \n    \\- Retorno do body com o item atualizado no top + id e post_id\n    \n\n5 - Deletar Posts\n\n- Método: DELETE\n- URL: `https://gorest.co.in/public/v2/posts/{idPosts}`\n- Esperado:  \n    \\- Status 204 (No Content)  \n    \\- Nenhuma resposta no corpo.\n    \n\n6 -Deletar Comments\n\n- Método: DELETE\n- URL: `https://gorest.co.in/public/v2/comments/{idComments}`\n- Esperado:  \n    \\- Status 204 (No Content)  \n    \\- Nenhuma resposta no corpo.\n    \n\n7 - Listar Posts\n\n- Método: GET\n    \n- URL: `https://gorest.co.in/public/v2/posts`\n    \n- Esperado:  \n    \\- Status 200 (OK)  \n    \\- Lista com todos os posts criados\n    \n\n8 - Listar Comments\n\n- Método: GET\n    \n- URL: `https://gorest.co.in/public/v2/comments`\n    \n- Esperado:  \n    \\- Status 200 (OK)  \n    \\- Lista com todos os comentarios criados",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13959183"
+	},
+	"item": [
+		{
+			"name": "Criar Posts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.globals.set(\"posts_id\", pm.response.json().id)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "818bc3f0cdc9f00faa0863897009d8c517f11c451c8fcf5405317cd47d471281",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"title\":\"teste\",\r\n   \"body\":\"i don't know\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/users/{{user_id}}/posts",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users",
+						"{{user_id}}",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Falha Posts - Title",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "818bc3f0cdc9f00faa0863897009d8c517f11c451c8fcf5405317cd47d471281",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"title\":\"\",\r\n   \"body\":\"i don't know\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/users/{{user_id}}/posts",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users",
+						"{{user_id}}",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Falha Posts - Body",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "818bc3f0cdc9f00faa0863897009d8c517f11c451c8fcf5405317cd47d471281",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"title\":\"teste\",\r\n   \"body\":\"\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/users/{{user_id}}/posts",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users",
+						"{{user_id}}",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar - Post",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "818bc3f0cdc9f00faa0863897009d8c517f11c451c8fcf5405317cd47d471281",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/posts/{{posts_id}}",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"posts",
+						"{{posts_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar - Posts",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "818bc3f0cdc9f00faa0863897009d8c517f11c451c8fcf5405317cd47d471281",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"title\":\"teste - Up\",\r\n   \"body\":\"i don't know\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/posts/{{posts_id}}",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"posts",
+						"{{posts_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete - Posts",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "818bc3f0cdc9f00faa0863897009d8c517f11c451c8fcf5405317cd47d471281",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"name\": \"Mr. goku\",\r\n        \"email\": \"goku_@test\",\r\n        \"gender\": \"female\",\r\n        \"status\":\"\",\r\n        \"address\":\"\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/posts/{{posts_id}}",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"posts",
+						"{{posts_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar Comments",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.globals.set(\"comments_id\", pm.response.json().id)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "818bc3f0cdc9f00faa0863897009d8c517f11c451c8fcf5405317cd47d471281",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"post\":\"93273\",\r\n    \"name\":\"Gokuzin\",\r\n    \"email\":\"gokuson@test\",\r\n    \"body\":\"test\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/posts/{{posts_id}}/comments",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"posts",
+						"{{posts_id}}",
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Falha Comments - Name",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "818bc3f0cdc9f00faa0863897009d8c517f11c451c8fcf5405317cd47d471281",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"\",\r\n    \"email\":\"gokuson@test\",\r\n    \"body\":\"test\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/posts/93273/comments",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"posts",
+						"93273",
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Falha Comments - Body",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "818bc3f0cdc9f00faa0863897009d8c517f11c451c8fcf5405317cd47d471281",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Gokuzin\",\r\n    \"email\":\"gokuson@test\",\r\n    \"body\":\"\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/posts/93273/comments",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"posts",
+						"93273",
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Falha Comments - Email",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "818bc3f0cdc9f00faa0863897009d8c517f11c451c8fcf5405317cd47d471281",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Gokuzin\",\r\n    \"email\":\"\",\r\n    \"body\":\"test\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/posts/93273/comments",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"posts",
+						"93273",
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar - Comments",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "818bc3f0cdc9f00faa0863897009d8c517f11c451c8fcf5405317cd47d471281",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/comments/{{comments_id}}",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"comments",
+						"{{comments_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar - Comments",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "818bc3f0cdc9f00faa0863897009d8c517f11c451c8fcf5405317cd47d471281",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n    \"name\":\"Gokuzin\",\r\n    \"email\":\"gokuson@test.com\",\r\n    \"body\":\"test\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/comments/{{comments_id}}",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"comments",
+						"{{comments_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete - Comments",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "818bc3f0cdc9f00faa0863897009d8c517f11c451c8fcf5405317cd47d471281",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"name\": \"Mr. goku\",\r\n        \"email\": \"goku_@test\",\r\n        \"gender\": \"female\",\r\n        \"status\":\"\",\r\n        \"address\":\"\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/comments/{{comments_id}}",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"comments",
+						"{{comments_id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

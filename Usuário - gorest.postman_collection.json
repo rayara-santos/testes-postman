@@ -1,0 +1,377 @@
+{
+	"info": {
+		"_postman_id": "2cdf71b8-e804-462c-80ba-e69c621ff30a",
+		"name": "Usuário - gorest",
+		"description": "### Cenário de Teste: API Go REST\n\n1 - Criar usuário\n\n- Método: POST\n- URL: `https://gorest.co.in/public/v2/users`\n- Corpo (JSON):  \n    code{ \"name\": \"Mr. goku\", \"email\": \"goku@test\", \"gender\": \"male\", \"status\":\"active\"}\n- Esperado:  \n    \\- Status 201 (Created)  \n    \\- Resposta com o mesmo corpo enviado no json\n    \n\n2 - Listar usuário\n\n- Método: GET\n- URL: `https://gorest.co.in/public/v2/users`\n- Esperado:  \n    \\- Status 200 (OK)  \n    \\- Lista com todos os users cadastrados\n    \n\n3 - Atualizar usuário\n\n- Método: PUT/PATCH\n- URL: `https://gorest.co.in/public/v2/users/{id}`\n- Esperado:  \n    \\- Status Status 200 (OK)  \n    \\- Retorno de um get com o item atualizado no top\n    \n\n4 - Deletar usuário\n\n- Método: DELETE\n- URL: `https://gorest.co.in/public/v2/users/{id}`\n- Esperado:  \n    \\- Status 204 (No Content)  \n    \\- Nenhuma resposta no corpo.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13959183"
+	},
+	"item": [
+		{
+			"name": "Sucesso",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.globals.set(\"user_id\", pm.response.json().id)\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "818bc3f0cdc9f00faa0863897009d8c517f11c451c8fcf5405317cd47d471281",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"name\": \"Mr. goku\",\r\n        \"email\": \"gokuson@test\",\r\n        \"gender\": \"male\",\r\n        \"status\":\"active\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/users",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "818bc3f0cdc9f00faa0863897009d8c517f11c451c8fcf5405317cd47d471281",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/users/{{user_id}}",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users",
+						"{{user_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Falha - Name",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "818bc3f0cdc9f00faa0863897009d8c517f11c451c8fcf5405317cd47d471281",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"name\": \"\",\r\n        \"email\": \"goku_@test\",\r\n        \"gender\": \"male\",\r\n        \"status\":\"active\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/users",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Falha - Email",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "818bc3f0cdc9f00faa0863897009d8c517f11c451c8fcf5405317cd47d471281",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"name\": \"Mr. goku\",\r\n        \"email\": \"\",\r\n        \"gender\": \"male\",\r\n        \"status\":\"active\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/users",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Falha - Gender",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "818bc3f0cdc9f00faa0863897009d8c517f11c451c8fcf5405317cd47d471281",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"name\": \"Mr. goku\",\r\n        \"email\": \"goku_@test\",\r\n        \"gender\": \"\",\r\n        \"status\":\"active\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/users",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Falha - Status",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "818bc3f0cdc9f00faa0863897009d8c517f11c451c8fcf5405317cd47d471281",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"name\": \"Mr. goku\",\r\n        \"email\": \"goku_@test\",\r\n        \"gender\": \"female\",\r\n        \"status\":\"\"  \r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/users",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "818bc3f0cdc9f00faa0863897009d8c517f11c451c8fcf5405317cd47d471281",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n        \"status\":\"inactive\" ,\r\n        \"gender\":\"female\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/users/{{user_id}}",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users",
+						"{{user_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "818bc3f0cdc9f00faa0863897009d8c517f11c451c8fcf5405317cd47d471281",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"name\": \"Mr. goku\",\r\n        \"email\": \"goku_@test\",\r\n        \"gender\": \"female\",\r\n        \"status\":\"\",\r\n        \"address\":\"\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/users/{{user_id}}",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users",
+						"{{user_id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

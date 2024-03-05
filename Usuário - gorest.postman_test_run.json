@@ -1,0 +1,198 @@
+{
+	"id": "cd3f519b-35f7-43c2-bb29-a07bb91839bd",
+	"name": "Usuário - gorest",
+	"timestamp": "2024-01-11T20:45:03.934Z",
+	"collection_id": "13959183-2cdf71b8-e804-462c-80ba-e69c621ff30a",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 0,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2024-01-11T20:44:58.658Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "169ec335-2761-4a75-b12d-022eceffc789",
+			"name": "Sucesso",
+			"url": "https://gorest.co.in/public/v2/users",
+			"time": 549,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				549
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "9d7629c2-14e5-47fa-972a-ed626ae4c8cf",
+			"name": "Falha - Name",
+			"url": "https://gorest.co.in/public/v2/users",
+			"time": 502,
+			"responseCode": {
+				"code": 422,
+				"name": "Unprocessable Entity"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				502
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "9e13e81a-6a02-4ebb-bb57-ec9b940673c2",
+			"name": "Falha - Email",
+			"url": "https://gorest.co.in/public/v2/users",
+			"time": 519,
+			"responseCode": {
+				"code": 422,
+				"name": "Unprocessable Entity"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				519
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "195f519d-4f81-45f5-8f52-85681a9d5c73",
+			"name": "Falha - Gender",
+			"url": "https://gorest.co.in/public/v2/users",
+			"time": 539,
+			"responseCode": {
+				"code": 422,
+				"name": "Unprocessable Entity"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				539
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "7250a6cf-42a8-4725-8b0d-2e022fb0deae",
+			"name": "Falha - Status",
+			"url": "https://gorest.co.in/public/v2/users",
+			"time": 484,
+			"responseCode": {
+				"code": 422,
+				"name": "Unprocessable Entity"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				484
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "7defa66e-bd09-4a6a-8926-3c008ac6da58",
+			"name": "Listar",
+			"url": "https://gorest.co.in/public/v2/users/5921125",
+			"time": 628,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				628
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "734acc66-0b8a-4a46-bbf9-2fb70d4756b3",
+			"name": "Atualizar",
+			"url": "https://gorest.co.in/public/v2/users/5921125",
+			"time": 518,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				518
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "39b2cd76-1ff5-469a-9e37-107d7a36f697",
+			"name": "Delete",
+			"url": "https://gorest.co.in/public/v2/users/5921125",
+			"time": 576,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				576
+			],
+			"allTests": [
+				{}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 4315,
+	"collection": {
+		"requests": [
+			{
+				"id": "169ec335-2761-4a75-b12d-022eceffc789",
+				"method": "POST"
+			},
+			{
+				"id": "9d7629c2-14e5-47fa-972a-ed626ae4c8cf",
+				"method": "POST"
+			},
+			{
+				"id": "9e13e81a-6a02-4ebb-bb57-ec9b940673c2",
+				"method": "POST"
+			},
+			{
+				"id": "195f519d-4f81-45f5-8f52-85681a9d5c73",
+				"method": "POST"
+			},
+			{
+				"id": "7250a6cf-42a8-4725-8b0d-2e022fb0deae",
+				"method": "POST"
+			},
+			{
+				"id": "7defa66e-bd09-4a6a-8926-3c008ac6da58",
+				"method": "GET"
+			},
+			{
+				"id": "734acc66-0b8a-4a46-bbf9-2fb70d4756b3",
+				"method": "PUT"
+			},
+			{
+				"id": "39b2cd76-1ff5-469a-9e37-107d7a36f697",
+				"method": "DELETE"
+			}
+		]
+	}
+}
